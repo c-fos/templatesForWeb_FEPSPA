@@ -1,0 +1,10 @@
+<h1>{{ experiment.exptagtable }}</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="/{{ experiment.id }}/tags/" method="post">
+{% csrf_token %}
+{% for choice in experiment.tagName.all %}
+    <input type="radio" name="tag" id="tags{{ forloop.counter }}" value="{{ exptagtable.id }}" />
+    <label for="tags{{ forloop.counter }}">{{ tags.tags }}</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>

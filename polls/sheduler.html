@@ -1,0 +1,22 @@
+<h1>{{path}}</h1><br />
+Frequency: {{frequency}}<br />
+Tags: {{tags}}<br />
+{{dict}}<br />
+{% if list %}
+    <ul>
+    {% for line in list %}
+         <li><a href="/sheduler/{{path}}/{{ line }}/">{{ line }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No files or directories.</p>
+{% endif %}
+<br />
+<form action="/sheduler/{{path}}/" method="post">
+{% csrf_token %}
+<input type="text" name="frequency" value="{{frequency}}"/> Frequency<br />
+<input type="text" name="tags" value="{{tags}}"/>Initial tags<br />
+<input type="text" name="path" value="{{path}}">Path<br />
+<input type="checkbox" name="check" value=1 /> Check query<br />
+<input type="submit" value="Ok" />
+</form>

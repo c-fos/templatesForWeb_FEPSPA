@@ -1,0 +1,29 @@
+<h1>{{path}}</h1><br />
+Frequency: {{frequency}}<br />
+Tags: {{tags}}<br />
+Debug: {{debug}}<br />
+Cluster: {{cluster}}<br />
+DB: {{db}}<br />
+{{dict}}<br />
+{% if list %}
+    <ul>
+    {% for line in list %}
+         <li><a href="/test/{{path}}/{{ line }}/">{{ line }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No files or directories.</p>
+{% endif %}
+<br />
+<form action="/test/{{path}}/" method="post">
+{% csrf_token %}
+<input type="text" name="frequency" value="{{frequency}}"/><br />
+<input type="text" name="tags" value="{{tags}}"/><br />
+<input type="text" name="dir" value="{{path}}"><br />
+<input type="checkbox" name="debug" value=1 /> Debug<br />
+<input type="checkbox" name="cluster" value=1 /> Cluster<br />
+<input type="checkbox" name="db" value=1 /> DB<br />
+<input type="checkbox" name="check" value=1 /> Check query<br />
+<input type="submit" value="Ok" />
+</form>
+

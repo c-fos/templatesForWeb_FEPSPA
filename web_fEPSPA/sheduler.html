@@ -1,0 +1,41 @@
+<link rel="stylesheet" type="text/css" href="/static/css/base.css">
+<h1>Обработка группы экспериментов</h1><br />
+<div id="manual">
+<h2>Краткое руководство:</h2><br />
+<ol>
+<li>Перейти в папку с группой экспериментов используя адрессную строку и гиперссылки на странице</li>
+<li>Указать частоту с которой производилась запись. <i>(Опционально, но желательно)</i></li>
+<li>Указать через запятую Теги, которые будут присвоены данному эксперименту. Названия вложенных папок автоматически становятся тэгами<b>(Важно для дальнейшего 
+поиска и обработки)</b></li>
+<li>Установить дополнительные опции обработки </li>
+<li>Поставить галочку в поле <i>Check query</i> и нажать на кнопку </li>
+<li>Не закрывать вкладку и браузер до тех пор пока символ обновления страницы не исчезнет </li>
+</ol>
+</div>
+<div  style="width:600px">
+<h2>Настройка анализатора</h2><br />
+Папка для анализа: <b>{{path}}</b><br />
+<div style="float:left; width:300px;">
+Содержимое папки:<br />
+{% if list %}
+    <ul>
+    {% for line in list %}
+         <li><a href="/sheduler/{{path}}/{{ line }}/">{{ line }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No files or directories.</p>
+{% endif %}
+</div>
+<div style="float:right;">
+<form action="/sheduler/{{path}}/" method="post">
+{% csrf_token %}
+Частота: <input type="text" name="frequency" value="{{frequency}}"/><br />
+Тэги: <input type="text" name="tags" value="{{tags}}"/><br />
+Путь: <input type="text" name="dir" value="{{path}}"><br />
+Запись в базу: <input type="checkbox" name="db" value=1 /><br />
+Настройки завершены: <input type="checkbox" name="check" value=1 /><br />
+<input type="submit" value="Начать обработку" />
+</form>
+</div>
+</div>
