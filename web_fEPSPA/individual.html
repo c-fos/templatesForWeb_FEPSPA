@@ -19,7 +19,7 @@
 {% if list %}
     <ul>
     {% for line in list %}
-         <li><a href="/individual/{{path}}/{{ line }}/">{{ line }}</a></li>
+         <li><a href="/analyser/individual/{{path}}/{{ line }}/">{{ line }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
@@ -33,7 +33,7 @@
 <!--Cluster: {{cluster}}<br />-->
 <!--DB: {{db}}<br />-->
 <!--{{dict}}<br />-->
-<form action="/individual/{{path}}/" method="post">
+<form action="/analyser/individual/{{path}}/" method="post">
 {% csrf_token %}
 Частота: <input type="text" name="frequency" value="{{frequency}}"/><br />
 Тэги: <input type="text" name="tags" value="{{tags}}"/><br />
@@ -41,7 +41,7 @@
 <!--Режим Дебага: <input type="checkbox" name="debug" value=1 /><br />-->
 <!--Кластеризация: <input type="checkbox" name="cluster" value=1 /><br />-->
 Запись в базу: <input type="checkbox" name="db" value=1 /><br />
-Настройки завершены: <input type="checkbox" name="check" value=0 /><br />
+Настройки завершены: <input type="checkbox" name="check" value=1 /><br />
 <input type="submit" value="Начать обработку" />
 </form>
 </div>
