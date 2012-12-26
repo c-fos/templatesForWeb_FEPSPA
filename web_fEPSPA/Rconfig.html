@@ -12,6 +12,8 @@
 <h2>Настройка R</h2><br />
 <form action="/R/" method="post">
 {% csrf_token %}
+<input type="radio" name="wanalyserType" value="tetan">Анализ высокочастотной стимуляции.
+<input type="radio" name="wanalyserType" value="individualStim">Анализ одиночной стимуляции<br />
 <input type="text" name="wname" value="{{wname}}"/> Имя базы данных.<br />
 <input type="text" name="wuser" value="{{wuser}}"/> Имя пользователя базы данных.<br />
 <input type="text" name="wpass" value="{{wpass}}"> Пароль <br />
