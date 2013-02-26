@@ -20,7 +20,7 @@
 {% if list %}
     <ul>
     {% for line in list %}
-         <li><a href="/sheduler/{{path}}/{{ line }}/">{{ line }}</a></li>
+         <li><a href="/analyser/sheduler/{{path}}/{{ line }}/">{{ line }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
@@ -28,7 +28,7 @@
 {% endif %}
 </div>
 <div style="float:right;">
-<form action="/sheduler/{{path}}/" method="post">
+<form action="/analyser/sheduler/{{path}}/" method="post">
 {% csrf_token %}
 Частота: <input type="text" name="frequency" value="{{frequency}}"/><br />
 Тэги: <input type="text" name="tags" value="{{tags}}"/><br />

@@ -10,7 +10,7 @@
 </div>
 <div  style="width:600px">
 <h2>Настройка R</h2><br />
-<form action="/R/" method="post">
+<form action="/analyser/R/" method="post">
 {% csrf_token %}
 <input type="radio" name="wanalyserType" value="tetan">Анализ высокочастотной стимуляции.
 <input type="radio" name="wanalyserType" value="individualStim">Анализ одиночной стимуляции<br />
@@ -29,6 +29,6 @@
 <input type="submit" value="Начать обработку" />
 </form>
 </div>
-<a href="../media/Routput.html">Ссылка на отчет.</a>
+<a href="../../media/Routput.html">Ссылка на отчет.</a>
 </div>
 
